@@ -914,7 +914,7 @@ func makeWindowsLayer(w io.Writer) (io.Writer, func(error), chan error) {
 					return err
 				}
 				h.Name = "Files/" + h.Name
-				if h.Linkname != "" {
+				if h.Linkname != "" && !strings.HasPrefix(h.Linkname, `C:\`) {
 					h.Linkname = "Files/" + h.Linkname
 				}
 				prepareWinHeader(h)
